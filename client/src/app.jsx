@@ -1,4 +1,15 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { browserHistory, Router } from 'react-router';
+import routes from './routes.js';
 
-ReactDom.render(<h1>Gem Portal</h1>, document.getElementById('gem_portal'));
+// remove tap delay, essential for MaterialUI to work properly
+injectTapEventPlugin();
+
+ReactDom.render((
+  <MuiThemeProvider muiTheme={getMuiTheme()}>
+    <Router history={browserHistory} routes={routes} />
+  </MuiThemeProvider>), document.getElementById('gem_portal'));
