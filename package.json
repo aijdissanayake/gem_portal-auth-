@@ -8,6 +8,10 @@
     "start": "nodemon --use_strict index.js",
     "bundle": "webpack"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aijdissanayake/gem_portal-auth-.git"
+  },
   "author": "Achala Dissanayake",
   "license": "ISC",
   "dependencies": {
