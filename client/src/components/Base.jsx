@@ -6,7 +6,7 @@ const Base = ({ children }) => (
   <div>
     <div className="top-bar">
       <div className="top-bar-left">
-        <IndexLink to="/">React App</IndexLink>
+        <IndexLink to="/">Gem Portal</IndexLink>
       </div>
 
       <div className="top-bar-right">
@@ -19,6 +19,7 @@ const Base = ({ children }) => (
     {children}
 
   </div>
+    
 );
 
 Base.propTypes = {

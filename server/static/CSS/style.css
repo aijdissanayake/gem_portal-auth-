@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: #00bcd4;
+  color: darkblue;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.4s;
@@ -64,4 +64,19 @@ a:hover {
 .success-message {
   padding: 0 16px;
   color: green;
+}
+
+.gem-home {
+  padding: 2%;
+  margin: 5%;
+}
+
+.image{
+  margin: 5%;
+  padding-left: 0%;
+  height: 500px;
+}
+
+.button-line{
+  color: darkblue;
 }

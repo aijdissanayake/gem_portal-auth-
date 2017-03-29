@@ -51,11 +51,45 @@ class SignUpPage extends React.Component {
     console.log('name:', this.state.user.name);
     console.log('email:', this.state.user.email);
     console.log('password:', this.state.user.password);
+
+    // HTTP body message
+    const name = encodeURIComponent(this.state.user.name);
+    const email = encodeURIComponent(this.state.user.email);
+    const password = encodeURIComponent(this.state.user.password);
+    const formData = `name=${name}&email=${email}&password=${password}`;
+
+    // AJAX request
+    const xhr = new XMLHttpRequest();
+    xhr.open('post', '/auth/signup');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+        // success
+
+        // change the component-container state
+        this.setState({
+          errors: {}
+        });
+
+        console.log('The form is valid');
+      } else {
+        // failure
+
+        const errors = xhr.response.errors ? xhr.response.errors : {};
+        errors.summary = xhr.response.message;
+
+        this.setState({
+          errors
+        });
+      }
+    });
+    xhr.send(formData);
+
   }
 
-  /**
-   * Render the component.
-   */
+  //Render the component.
+   
   render() {
     return (
       <SignUpForm
