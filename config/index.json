@@ -1,0 +1,4 @@
+{
+  "dbUri": "'mongodb://localhost/gem_portal'",
+  "jwtSecret": "a secret phrase!!"
+}
