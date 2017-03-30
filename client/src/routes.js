@@ -11,7 +11,13 @@ const routes = {
 
     {
       path: '/',
-      component: HomePage
+      getComponent: (location, callback) => {
+        if (Auth.isUserAuthenticated()) {
+          callback(null, DashboardPage);
+        } else {
+          callback(null, HomePage);
+        }
+      }
     },
 
     {
@@ -22,6 +28,16 @@ const routes = {
     {
       path: '/signup',
       component: SignUpPage
+    },
+
+    {
+      path: '/logout',
+      onEnter: (nextState, replace) => {
+        Auth.deauthenticateUser();
+
+        // change the current URL to /
+        replace('/');
+      }
     }
 
   ]
